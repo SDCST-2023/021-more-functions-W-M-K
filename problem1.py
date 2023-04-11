@@ -13,8 +13,16 @@ assert convertTemp(10,'C') == 50
 assert converTemp(32,'F') == 0
 """
 
-def convertTemp():
-    return
+def convertTemp(degrees, unit):
+    if unit == 'C':
+        # convert from Celsius to Fahrenheit using the formula F = (C * 9/5) + 32
+        result = (degrees * 9/5) + 32
+    elif unit == 'F':
+        # convert from Fahrenheit to Celsius using the formula C = (F - 32) * 5/9
+        result = (degrees - 32) * 5/9
+    else:
+        raise ValueError('Invalid unit. Must be "C" or "F".')
+    return round(result, 2)
 
 def tests():
     assert convertTemp(10,'C') == 50.00
